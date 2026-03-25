@@ -1,0 +1,151 @@
+#include <stdio.h>
+#include <math.h>
+
+/* int edad = 20;
+float altura = 1.75;
+double peso = 70.345678;
+char inicial = 'A';
+long long distancia = 1234567890;
+int n = 42;
+
+int edad2 = 0;
+ */
+int main() {
+/* printf("Edad: %d\n", edad);
+printf("Altura: %f\n", altura);
+printf("Peso: %lf\n", peso);
+printf("Inicial: %c\n", inicial);
+printf("Distancia: %lld\n", distancia);
+
+
+printf("%d \n", n);
+printf("%5d \n", n);
+printf("%10d \n", n);
+
+int edad;
+printf("Ingrese edad: ");
+scanf("%d", &edad);
+float altura;
+printf("Ingrese altura: ");
+scanf("%f", &altura);
+double peso;
+printf("Ingrese peso: ");
+scanf("%lf", &peso);
+char inicial;
+printf("Ingrese una letra: ");
+scanf(" %c", &inicial);
+
+printf("Edad: %d\n", edad);
+printf("Altura: %f\n", altura);
+printf("Peso: %lf\n", peso);
+printf("Inicial: %c\n", inicial);
+
+printf("Edad Dos: " , edad2);
+scanf("%d", &edad2);
+printf("la edad dos es : %d\n", edad2);
+printf("La suma de las edades es %d\n", edad + edad2);
+
+int numero;
+printf("Ingrese numero: ");
+scanf("%d", &numero);
+printf("Mayor que 10: %d\n", numero > 10);
+printf("Igual a 0: %d\n", numero == 0);
+printf("Distinto de 5: %d\n", numero != 5);
+
+if(edad < edad2){
+  printf("la segunda persona es mayor");
+  return 0;
+}else{
+  printf("la segunda persona es menor");
+} */
+
+  return 0;
+}
+
+
+EJ de triangulos
+
+#include <stdio.h>
+
+int main() {
+    int a, b, c;
+
+    printf("Ingrese el primer lado: ");
+    scanf("%d", &a);
+
+    printf("Ingrese el segundo lado: ");
+    scanf("%d", &b);
+
+    printf("Ingrese el tercer lado: ");
+    scanf("%d", &c);
+
+    // Validar triángulo
+    if (a + b <= c || a + c <= b || b + c <= a) {
+        printf("No es un triangulo valido.\n");
+    } else if (a == b && b == c) {
+        printf("El triangulo es Equilatero.\n");
+    } else if (a == b || a == c || b == c) {
+        printf("El triangulo es Isosceles.\n");
+    } else {
+        printf("El triangulo es Escaleno.\n");
+    }
+
+    return 0;
+} con ayuda del gpt
+
+EJ de nota
+
+#include <stdio.h>
+
+int main() {
+    float nota;
+  printf(" coloque el valor de la nota: \n");
+  scanf("%f", &nota);
+
+    if( nota >= 9){
+      if (nota == 10)
+      {
+        printf("Sobresaliente matricula \n");
+      }else{ printf(" sobresaliente");}      
+    }else if((nota >= 7) && (nota < 9) ){
+      printf("la nota es notable");
+    }else if((nota >= 5) && (nota < 6)){ printf("Aprobado");
+    }else{
+      printf("suspendido");
+    }
+    return 0;
+}
+
+EJ de peso
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+float IMC;
+
+float altura;
+printf("Ingrese altura: ");
+scanf("%f", &altura);
+float peso;
+printf("Ingrese peso: ");
+scanf("%f", &peso);
+
+IMC = (peso/(altura*2));
+
+if(IMC<18.5){
+  printf("bajo peso \n");
+}else if( 18.5<IMC<24.9){
+  printf("normal \n");
+}else if(IMC>=25){
+  if(IMC<30){
+    printf("sobrepeso");
+    if(IMC>=30){
+      printf("obesidad");
+    }
+    }
+}else{
+  printf("no catalogado");
+}
+
+    return 0;
+}

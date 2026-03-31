@@ -149,3 +149,128 @@ if(IMC<18.5){
 
     return 0;
 }
+
+EJER de cual es el entero de mayor denominación:
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+int a, b, c;
+
+printf("Coloca un valor entero : ");
+scanf("%d", &a);
+printf("Coloca otro segundo valor entero : ");
+scanf("%d", &b);
+printf("Coloca otro tercer valor entero : ");
+scanf("%d", &c);
+
+printf("los valores son: %d %d %d\n" , a , b , c);
+
+if((a>b) && (b>c)){
+  printf("el orden correcto es %d %d %d \n" ,a ,b ,c);
+}else if((b>a) && (a>c)){
+  printf("el orden correcto es %d %d %d \n" ,b ,a ,c);
+}else if((c>a) && (a>b)){
+  printf("el orden correcto es %d %d %d \n" ,c ,a ,b);
+}else if((b>c) && (c>a)){
+  printf("el orden correcto es %d %d %d \n" ,b ,c ,a);
+}else if((c>b) && (b>a)){
+  printf("el orden correcto es %d %d %d \n" ,c ,b ,a);
+}else if((a>c) && (c>b)){
+  printf("el orden correcto es %d %d %d \n" ,b ,a ,c);
+}else if((c>b) && (b>a)){
+  printf("el orden correcto es %d %d %d \n" ,c ,b ,a);
+}else{
+  printf("sigo viendo que falta \n");
+}
+
+    return 0;
+}#include <stdio.h>
+#include <math.h>
+
+int main() {
+int a, b, c;
+
+printf("Coloca un valor entero : ");
+scanf("%d", &a);
+printf("Coloca otro segundo valor entero : ");
+scanf("%d", &b);
+printf("Coloca otro tercer valor entero : ");
+scanf("%d", &c);
+
+printf("los valores son: %d %d %d\n" , a , b , c);
+
+if((a>b) && (b>c)){
+  printf("el orden correcto es %d %d %d \n" ,a ,b ,c);
+}else if((b>a) && (a>c)){
+  printf("el orden correcto es %d %d %d \n" ,b ,a ,c);
+}else if((c>a) && (a>b)){
+  printf("el orden correcto es %d %d %d \n" ,c ,a ,b);
+}else if((b>c) && (c>a)){
+  printf("el orden correcto es %d %d %d \n" ,b ,c ,a);
+}else if((c>b) && (b>a)){
+  printf("el orden correcto es %d %d %d \n" ,c ,b ,a);
+}else if((a>c) && (c>b)){
+  printf("el orden correcto es %d %d %d \n" ,b ,a ,c);
+}else if((c>b) && (b>a)){
+  printf("el orden correcto es %d %d %d \n" ,c ,b ,a);
+}else{
+  printf("sigo viendo que falta \n");
+}
+
+    return 0;
+}
+
+Estructuras de control e iteracion:
+contador de Vida 
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+int edad;
+printf("ingrese su edad :");
+scanf("%d", &edad);
+printf("Su edad es :%d\n", edad);
+
+for(int i=0; i <= edad ; i++){
+printf("%d\n", i);
+}
+    return 0;
+}
+
+secuencia de impares
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+int entero;
+printf("ingrese un entero :");
+scanf("%d", &entero);
+printf("El entero es: %d\n", entero);
+
+
+if (entero % 2 == 0) entero--;      // lo llevo al impar más cercano hacia abajo
+
+for (int i = entero; i >= 1; i -= 2) {
+    printf("%d\n", i);
+}
+
+    return 0;
+}
+
+ejercicio de tabla del 1 al 10
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+
+for(int i=1 ; i <= 10; i++){
+  printf("la tabla de %d\n", i);
+  for(int n=1;n <=10; n++){
+    printf("%d X %d = %d \n" , i , n , i * n);
+  }
+}
+    return 0;
+}

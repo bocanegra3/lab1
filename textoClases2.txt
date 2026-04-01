@@ -1,0 +1,223 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+
+double saldo, monto , tasa, rendimiento;
+int opcion, meses;
+
+ printf("ingrese su saldo inicia: ");
+ scanf("%lf", &saldo);
+  do{
+     printf("\n===== CAJERO BASICO ====\n");
+      printf("Su saldo es: %.2f \n", saldo);
+       printf("1) Depositar \n");
+        printf("2) Retirar \n");
+         printf("3) Invertir \n");
+          printf("4) Salir \n");
+          printf("Elija una opcion: ");
+           scanf("%d", &opcion);
+
+           switch (opcion)
+           {
+           case 1:
+           printf("Monto a depositar: ");
+           scanf("%lf", &monto);
+
+           if(monto <= 0){
+            printf("el monto debe ser mayor a 0. \n");
+            }else {
+              saldo += monto;
+              printf("Deposito realizado. Nuevo saldo: %.2f\n", saldo);
+            }
+            break;
+            case 2:
+            printf("Coloque el monto a retirar: ");
+            scanf("%lf", &monto);
+            if(monto <= 0){
+              printf("El monto debe ser mayor a 0. \n");
+            }else if(monto>saldo){
+              printf("Fondos insuficientes. \n");
+            }else{
+              saldo-= monto;
+              printf("El retiro a sido realizado. Nuevo saldo: %.2f\n", saldo);
+            }
+            break;
+            case 3:
+            printf("Tiempo(meses): ");
+            scanf("%d", &meses);
+
+            printf("Tasa mensual (%%): ");
+            scanf("%lf", &tasa);
+
+            if(meses <= 0 || tasa<0){
+              printf("Tiempo debe ser mayor o igual a 1 mes y la tasa debe ser positiva. \n");
+            }else{
+              rendimiento = saldo * (tasa/100.0)* meses;
+              printf("rendimiento proyectado: %.2f\n", rendimiento);
+               printf("saldo + rendimiento %.2f\n", saldo + rendimiento);
+            }
+            break;
+
+            case 4:
+            printf("Saliendo...\n");
+            break;
+
+            default:
+            printf("Opcion invalida. Elija del 1 al 4. \n");
+            break;
+          }
+          
+        }while(opcion != 4);
+          
+          return 0;  
+
+}
+
+
+ejercicio clave y suma
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+
+  int clave= 15333315;
+  char usuario[]= "admin";
+  int ingreso;
+
+  do{
+    printf("Ingrese clave: ");
+    scanf("%d", &ingreso);
+    }while(ingreso != clave);
+  printf("Acceso permitido. \n");
+
+  int n;
+  int suma = 0;
+  printf("Ingrese numeros (0 para terminar): ");
+  scanf("%d", &n);
+
+  while(n != 0){
+    suma += n;
+    printf("Ingrese otro numero (0 para terminar): ");
+    scanf("%d", &n);
+  }
+
+  printf("total de la suma acumulado: %d\n", suma);
+
+          return 0;  
+
+}
+
+ejer, cuenta los numeros positivos y los negativos respectivamente.
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+
+int numero, p = 0, n = 0;
+
+do{
+  printf("ingrese un numero  entero cualquiera sea hasta que desee finalizar, para finalizar marque '0' : ");
+  scanf("%d", &numero);
+  if( numero < 0){
+       
+    n += 1;
+    printf("se añadio un numero %d\n", n);
+    }else if ( numero >0){      
+    p += 1;
+    printf("se añadio un numero%d \n", p);
+  }
+
+}while(numero != 0);
+
+printf("se añadio %d numeros positivos y %d numeros negativos \n", p , n);
+
+          return 0;  
+
+}
+
+ejer de promedios
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+int numero, contador = 0 , suma = 0;
+float  promedio;
+
+do{
+  printf("ingrese un numero entero : ");
+  scanf("%d", &numero);
+ 
+suma += numero;
+contador++;
+
+}while(numero!=0);
+
+promedio = suma/contador;
+
+printf("El promedio es %f\n", promedio);
+
+ return 0;  
+
+}
+
+
+ejercicio ingresar un numero aleatorio y seleccionar el mayor para luego mostrarlo
+
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+int numero;
+int mayor = 0;
+
+do{
+  printf("ingrese un numero entero : ");
+  scanf("%d", &numero);
+ 
+  if(numero>mayor){
+    mayor = numero;
+  }
+
+}while(numero!=0);
+printf(" el numero mas grande que ingresaste es %d \n", mayor);
+ return 0;  
+
+}
+
+ejercicio numero aleatorio y adivinanza
+
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+int numero,contador = 0;
+int mayor = 0;
+
+    srand(time(NULL));              // semilla (una vez al inicio)
+    int n = (rand() % 10) + 1;      // 1..10
+  
+    printf("Se decidio un numero de manera aleatoria, usted debe adivinarlo\n");
+
+
+
+  do{
+    printf("ingrese un numero entero : ");
+    scanf("%d", &numero);
+    if(numero>n){
+      printf("El numero que ingresaste es mas grande que el numero oculto\n");
+    }else if(numero<n){ printf("El numero que pusiste es menor al numero oculto\n");}
+
+    contador++;
+
+  }while (numero != n);
+  
+printf("Excelente , lo adivinaste en %d intentos.\n", contador);
+
+ return 0;  
+
+}

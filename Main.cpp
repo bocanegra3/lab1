@@ -5,7 +5,7 @@
 int main() {
   int n, s, c;
   int edad, importe, opcion;
-  int totalRecaudacion = 0, cantidadPasajeros = 0,cantidadPasajerosNeuquen=0, pasajerosMayores = 0, recaudacionSanpedro, pasajerosMenores = 0,recaudacionNeuquen ,promedioNeuquen;
+  int totalRecaudacion = 0, cantidadPasajeros = 0,cantidadPasajerosNeuquen=0,cantidadPasajerosSanpedro=0,cantidadPasajerosCapilla=0, pasajerosMayores = 0, recaudacionSanpedro, pasajerosMenores = 0,recaudacionNeuquen ,promedioNeuquen;
     do{
      printf("\n===== Selecciona el destino ====\n");
         printf("1)Su destino es Neuquen Capital (n) \n");
@@ -27,7 +27,7 @@ int main() {
            recaudacionNeuquen = recaudacionNeuquen + importe;
            cantidadPasajerosNeuquen = cantidadPasajerosNeuquen +1;
             if(edad>=60){ pasajerosMayores++;}
-            if(edad<=18 || importe>10000){pasajerosMenores++;}
+            if(edad<=18 && importe>10000){pasajerosMenores++;}
 
             break;
             case 2:
@@ -38,8 +38,9 @@ int main() {
            totalRecaudacion = totalRecaudacion + importe;
            cantidadPasajeros = cantidadPasajeros + 1;
            recaudacionSanpedro = recaudacionSanpedro + importe;
+            cantidadPasajerosSanpedro = cantidadPasajerosSanpedro +1;
             if(edad>=60){ pasajerosMayores++;}
-             if(edad<=18 || importe>10000){pasajerosMenores++;}
+             if(edad<=18 && importe>10000){pasajerosMenores++;}
             
             break;
             case 3:
@@ -49,8 +50,9 @@ int main() {
            scanf("%d", &importe);
            totalRecaudacion = totalRecaudacion + importe;
            cantidadPasajeros = cantidadPasajeros + 1;
+            cantidadPasajerosCapilla = cantidadPasajerosCapilla +1;
            if(edad>=60){ pasajerosMayores++;}
-            if(edad<=18 || importe>10000){pasajerosMenores++;}
+            if(edad<=18 && importe>10000){pasajerosMenores++;}
             
             break;
 
@@ -71,6 +73,9 @@ int main() {
          printf("los viajeros mayores a 60 son: %d \n", pasajerosMayores);
          printf("los pasajeros menores que pagaron mas de 10mil son: %d\n", pasajerosMenores);
 
+         if(cantidadPasajerosNeuquen >= 3){printf("la cantidad de pasajeros es mayor a 3");}
+         if(cantidadPasajerosCapilla >= 3){printf("la cantidad de pasajeros es mayor a 3");}
+         if(cantidadPasajerosSanpedro >= 3){printf("la cantidad de pasajeros es mayor a 3");}
 
           
           return 0;  

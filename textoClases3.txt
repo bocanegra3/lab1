@@ -1,0 +1,229 @@
+ejercicio tipo parcial:
+
+#include <stdio.h>
+#include <math.h>
+
+
+int main() {
+  int n, s, c;
+  int edad, importe, opcion;
+  int totalRecaudacion = 0, cantidadPasajeros = 0,cantidadPasajerosNeuquen=0,cantidadPasajerosSanpedro=0,cantidadPasajerosCapilla=0, pasajerosMayores = 0, recaudacionSanpedro, pasajerosMenores = 0,recaudacionNeuquen ,promedioNeuquen;
+    do{
+     printf("\n===== Selecciona el destino ====\n");
+        printf("1)Su destino es Neuquen Capital (n) \n");
+        printf("2)Su destino es San Pedro (s)\n");
+         printf("3)Su destino es Capilla del Monte (c)\n");
+          printf("4) Salir \n");
+          printf("Elija una opcion: ");
+           scanf("%d", &opcion);
+
+           switch (opcion)
+           {
+           case 1:
+           printf("ingrese su edad :");
+           scanf("%d", &edad);
+           printf("Ahora ingrese el importe :");
+           scanf("%d", &importe);
+           totalRecaudacion = totalRecaudacion + importe;
+           cantidadPasajeros = cantidadPasajeros + 1;
+           recaudacionNeuquen = recaudacionNeuquen + importe;
+           cantidadPasajerosNeuquen = cantidadPasajerosNeuquen +1;
+            if(edad>=60){ pasajerosMayores++;}
+            if(edad<=18 && importe>10000){pasajerosMenores++;}
+
+            break;
+            case 2:
+           printf("ingrese su edad :");
+           scanf("%d", &edad);
+           printf("Ahora ingrese el importe :");
+           scanf("%d", &importe);
+           totalRecaudacion = totalRecaudacion + importe;
+           cantidadPasajeros = cantidadPasajeros + 1;
+           recaudacionSanpedro = recaudacionSanpedro + importe;
+            cantidadPasajerosSanpedro = cantidadPasajerosSanpedro +1;
+            if(edad>=60){ pasajerosMayores++;}
+             if(edad<=18 && importe>10000){pasajerosMenores++;}
+            
+            break;
+            case 3:
+           printf("ingrese su edad :");
+           scanf("%d", &edad);
+           printf("Ahora ingrese el importe :");
+           scanf("%d", &importe);
+           totalRecaudacion = totalRecaudacion + importe;
+           cantidadPasajeros = cantidadPasajeros + 1;
+            cantidadPasajerosCapilla = cantidadPasajerosCapilla +1;
+           if(edad>=60){ pasajerosMayores++;}
+            if(edad<=18 && importe>10000){pasajerosMenores++;}
+            
+            break;
+
+            case 4:
+            printf("Saliendo...\n");
+            break;
+
+            default:
+            printf("Opcion invalida. Elija del 1 al 4. \n");
+            break;
+          }
+          
+        }while(opcion != 4);
+
+         printf("cantidad de pasajeros total: %d monto recaudado: %d \n", cantidadPasajeros , totalRecaudacion);
+         printf("lo recaudado a San Pedro es : %d\n", recaudacionSanpedro);
+         printf("el promedio de importe por pasajero en Neuquen es:  %d\n", promedioNeuquen = recaudacionNeuquen/cantidadPasajerosNeuquen );
+         printf("los viajeros mayores a 60 son: %d \n", pasajerosMayores);
+         printf("los pasajeros menores que pagaron mas de 10mil son: %d\n", pasajerosMenores);
+
+         if(cantidadPasajerosNeuquen >= 3){printf("la cantidad de pasajeros es mayor a 3");}
+         if(cantidadPasajerosCapilla >= 3){printf("la cantidad de pasajeros es mayor a 3");}
+         if(cantidadPasajerosSanpedro >= 3){printf("la cantidad de pasajeros es mayor a 3");}
+
+          
+          return 0;  
+
+}
+
+CLASE DEL 07 04 apuntes:
+Vectores: int numero [5];
+numero no es un numero, es un conjunto de posiciones.
+
+int numeros[5]={10,20,30,40,50};
+
+ciclo para ( for ) sirve para guardar varios datos especificos sin perder su valor, por ejemplo cargarle numeros y despues poder usar el vector parasa
+por ej ordenarlos o extraer ciertos datos particulares.
+
+
+fgets permite ingresar frases.
+  el string se recorre hasta colocar el "\0" (o strlength())
+
+funcion getchar() :La función getchar() en C, definida en <stdio.h>,
+ lee un único carácter de la entrada estándar (stdin, generalmente el teclado) y devuelve su valor ASCII como un entero (int).
+ Requiere presionar 'Enter' para procesar la entrada y es útil en bucles para leer texto carácter a carácter hasta encontrar EOF
+funcion fflush(stadin): La función fflush(stdin) en C se utiliza comúnmente para limpiar el búfer de entrada estándar (stdin), 
+  eliminando caracteres sobrantes (como saltos de línea \n) tras un scanf. Aunque útil, su uso no es estándar ni seguro, 
+  provocando comportamientos indefinidos en muchos compiladores; se recomienda usar alternativas como while (getchar() != '\n');
+
+char palabra[30];
+char caracte = '\0';
+fgets(palabra,20,stdin);
+
+
+guia de ejercicios
+
+1>
+
+#include <stdio.h>
+#include <math.h>
+
+
+int main() {
+int cargar[5];
+
+for(int i=0; i<5; i++){
+    printf("Coloque aqui %d valores enteros: ", i +1);
+    fflush(stdout);
+    scanf("%d", &cargar[i]);
+}
+
+printf(" Los enteros seleccionados son %d , %d,  %d,  %d,  %d", cargar[0], cargar[1], cargar[2], cargar[3], cargar[4]);
+          
+return 0;  
+
+}
+
+2>
+
+#include <stdio.h>
+#include <math.h>
+
+
+int main() {
+int cargar[5];
+int suma=0;
+
+for(int i=0; i<5; i++){
+    printf("Coloque aqui %d valores enteros: ", i +1);
+
+    scanf("%d", &cargar[i]);
+suma += cargar[i];
+    
+}
+
+printf(" Los enteros seleccionados son %d , %d,  %d,  %d,  %d", cargar[0], cargar[1], cargar[2], cargar[3], cargar[4]);
+printf(" Y la suma de todos los valores es: %d", suma);
+          
+return 0;  
+
+}
+
+5>
+#include <stdio.h>
+#include <math.h>
+
+
+int main() {
+int cargar[5];
+int suma=0;
+int promedio=0;
+
+for(int i=0; i<5; i++){
+    printf("Coloque aqui %d valores enteros: ", i +1);
+
+    scanf("%d", &cargar[i]);
+suma += cargar[i];
+promedio = suma / 2;
+    
+}
+
+printf(" Los enteros seleccionados son %d , %d,  %d,  %d,  %d \n", cargar[0], cargar[1], cargar[2], cargar[3], cargar[4]);
+printf(" Y la suma de todos los valores es: %d \n", suma);
+printf("Su promedio es: %d\n", promedio);
+          
+return 0;  
+
+}
+
+
+
+7>
+#include <stdio.h>
+#include <math.h>
+#include <stdlib.h>
+#include <time.h>
+
+
+int main() {
+
+  int clave= 1234;
+  char usuario[]= "admin";
+  int ingreso;
+  int numeroClave=0;
+
+
+  do{
+    printf("Ingrese clave: ");
+    scanf("%d", &ingreso);
+    }while(ingreso != clave);
+  printf("Acceso permitido. \n");
+
+   srand(time(NULL));              // semilla (una vez al inicio)
+    int n = (rand() % 10) + 1;
+    int l = (rand() % 10) + 1;// 1..10
+    int d = (rand() % 10) + 1;
+  
+    printf("Se decidio un numero de manera aleatoria, usted debe adivinarlo\n");
+
+    int variables[3]={l,d,n};
+
+    for(int i=0; variables[i] != numeroClave; i++){
+        printf("intento numero %d...", i + 1);
+        printf(" coloque un valor aleatoriamente para ver si adivina el valor aleatorio: ");
+        scanf("%d", &numeroClave);
+    }
+          printf("Usted hayo el numero que es %d", numeroClave);
+return 0;  
+
+}
+
+

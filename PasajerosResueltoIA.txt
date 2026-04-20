@@ -1,0 +1,95 @@
+#include <stdio.h>
+
+int main() {
+    int micro;
+    char destino;
+
+    // Acumuladores globales
+    float recaudTotal = 0;
+    int totalPasajeros = 0;
+    int mayores60 = 0;
+    float recaudS = 0;
+
+    float sumaN = 0;
+    int cantN = 0;
+
+    int microsMasDe3 = 0;
+    int menores18Mas10000 = 0;
+
+    printf("Ingrese numero de micro (0 para terminar): ");
+    scanf("%d", &micro);
+
+    while (micro != 0) {
+
+        // Destino del micro
+        printf("Ingrese destino del micro (N/S/C): ");
+        scanf(" %c", &destino);
+
+        // Contador de pasajeros de ESTE micro
+        int cantPasajMicro = 0;
+
+        // Pasajeros del micro (centinela: edad 0)
+        int edad;
+        float importe;
+
+        printf("Ingrese edad del pasajero (0 para cerrar micro): ");
+        scanf("%d", &edad);
+
+        while (edad != 0) {
+            printf("Ingrese importe del pasaje: ");
+            scanf("%f", &importe);
+
+            cantPasajMicro++;
+            totalPasajeros++;
+            recaudTotal += importe;
+
+            if (edad > 60) {
+                mayores60++;
+            }
+
+            if (edad < 18 && importe > 10000) {
+                menores18Mas10000++;
+            }
+
+            // Recaudación por destino
+            if (destino == 'S' || destino == 's') {
+                recaudS += importe;
+            }
+
+            // Promedio destino N
+            if (destino == 'N' || destino == 'n') {
+                sumaN += importe;
+                cantN++;
+            }
+
+            printf("Ingrese edad del pasajero (0 para cerrar micro): ");
+            scanf("%d", &edad);
+        }
+
+        // Punto 6: micros con más de 3 pasajeros
+        if (cantPasajMicro > 3) {
+            microsMasDe3++;
+        }
+
+        printf("\nIngrese numero de micro (0 para terminar): ");
+        scanf("%d", &micro);
+    }
+
+    // Informes finales
+    printf("\n===== INFORME =====\n");
+    printf("1) Recaudacion total general: %.2f\n", recaudTotal);
+    printf("2) Cantidad total de pasajeros: %d\n", totalPasajeros);
+    printf("3) Pasajeros mayores de 60: %d\n", mayores60);
+    printf("4) Recaudacion destino S: %.2f\n", recaudS);
+
+    if (cantN > 0) {
+        printf("5) Promedio importe destino N: %.2f\n", (sumaN / cantN));
+    } else {
+        printf("5) Promedio importe destino N: (sin pasajeros)\n");
+    }
+
+    printf("6) Micros con mas de 3 pasajeros: %d\n", microsMasDe3);
+    printf("7) Menores de 18 que pagaron mas de 10000: %d\n", menores18Mas10000);
+
+    return 0;
+}

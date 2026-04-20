@@ -1,0 +1,26 @@
+Ejercicio: Liga de “Piedra, Papel o Tijera” (Ranking)
+
+Vas a hacer un programa que registre jugadores y sus resultados en una mini liga.
+
+Datos a cargar (por jugador)
+nombre (string)
+victorias (int)
+derrotas (int)
+empates (int)
+
+Todo eso debe estar dentro de un struct Jugador.
+Los jugadores se guardan en un array jugadores[].
+
+Carga
+
+El programa debe cargar jugadores hasta que el usuario escriba "fin" como nombre.
+
+Se pide informar al final:
+Cantidad total de jugadores.
+Puntos totales de cada jugador con la regla:
+victoria = 3 puntos
+empate = 1 punto
+derrota = 0 puntos
+Mostrar el campeón (el de más puntos).
+Si hay empate, gana el que tenga más victorias.
+Mostrar cuántos jugadores tuvieron más empates que derrotas.

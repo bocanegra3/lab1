@@ -24,3 +24,59 @@ derrota = 0 puntos
 Mostrar el campeón (el de más puntos).
 Si hay empate, gana el que tenga más victorias.
 Mostrar cuántos jugadores tuvieron más empates que derrotas.
+
+.
+/* objeto jugadores{
+nombres jugadores
+victoria 
+empate
+derrota
+cantidad de partidas totales
+
+funcion resultadoParcial();
+funcion resultadoFinal();
+main{
+ingresar nombre jugador 1{ }
+ingresar nombre jugador 2 { }
+
+bucle{
+elija piedra papel o tijera jugador 1.
+elija piedra papel o tijera jugador 2.
+
+resultadoParcial()
+
+}hasta(fin = 1){
+resultadoFinal()
+}
+
+funcion resultadoParcial{
+si(si a+b= 3 y a=1 y b=2){
+imprimir: jugador 1 uso piedra y jugador 2 uso papel, gana el jugador2}
+}si (a+b= 4 y a=1 y b=3){
+imprimir: jugador 1 uso piedra y jugador 2 uso tijera, gana el jugador1}
+si (a+b= 3 y a=2 y b=1){
+imprimir: jugador 1 uso papel y jugador 2 uso piedra, gana el jugador1}
+si (a+b= 5 y a=2 y b=3){
+imprimir: jugador 1 uso papel y jugador 2 uso tijera, gana el jugador2}
+si (a+b= 4 y a=3 y b=1){
+imprimir: jugador 1 uso tijera y jugador 2 uso piedra, gana el jugador2}
+si (a+b= 5 y a=3 y b=2){
+imprimir: jugador 1 uso tijera y jugador 2 uso papel, gana el jugador1}
+}sino{
+    imprimir: se a empatadp
+}
+
+funcion resultadoFinal(){
+    imprimir, jugador uno nombre
+                        partidas totales
+                        partidas ganadas
+                        partidas perdidas
+                        partidas empatadas
+              jugador dos nombre
+                        partidas totales
+                        partidas ganadas
+                        partidas perdidas
+                        partidas empatadas
+                
+}
+ */

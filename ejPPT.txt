@@ -80,3 +80,99 @@ funcion resultadoFinal(){
                 
 }
  */
+
+ #include <stdio.h>
+#include <math.h>
+#include <string.h>
+/* comentarios */
+int continuar=0;
+
+struct Jugadores{
+    char nombre[20];
+    int victorias;
+    int derrotas;
+    int empates;
+    int partidasTotales;
+    int seleccion;
+};
+    Jugadores a;
+    Jugadores b;
+
+int resultadoParcial();
+void resultadoFinal();
+
+
+
+int main(){
+
+
+
+    printf("Ingrese el nombre del Jugador uno: ");
+    fgets(a.nombre, sizeof(a.nombre), stdin);
+    a.nombre[strcspn(a.nombre,"\n")]= '\0';
+
+    printf("Ingrese el nombre del Jugador dos: ");
+    fgets(b.nombre, sizeof(b.nombre), stdin);
+    b.nombre[strcspn(b.nombre, "\n")]= '\0';
+
+do{
+    printf("%s Seleccione 1 para piedra, 2 para papel o 3 para tijera : ", a.nombre);
+    scanf("%d", &a.seleccion);
+
+    printf("%s Seleccione 1 para piedra, 2 para papel o 3 para tijera : ", b.nombre);
+    scanf("%d", &b.seleccion);
+
+    resultadoParcial();
+    printf("\n");
+
+    a.partidasTotales ++;
+    
+    printf("Si desea seguir Jugando precione 1, de lo contrario presione 0\n");
+    scanf("%d", &continuar);
+
+}while(continuar==1);{
+resultadoFinal();
+}
+
+    return 0;
+}
+int resultadoParcial(){
+    if((a.seleccion==1)&&(b.seleccion==2)){
+        printf("%s a ganado con piedra a %s que utilizo papel \n", b.nombre, a.nombre);      
+        b.victorias++;  
+        a.derrotas++;
+    }else if((a.seleccion==1)&&(b.seleccion==3)){
+        printf("%s a ganado con piedra a %s que utilizo tijera \n", a.nombre, b.nombre); 
+        a.victorias++;  
+        b.derrotas++;       
+    }else if((a.seleccion==2)&&(b.seleccion==1)){
+        printf("%s a ganado con papel a %s que utilizo piedra \n", a.nombre, b.nombre);    
+        a.victorias++;  
+        b.derrotas++;    
+    }else if((a.seleccion==2)&&(b.seleccion==3)){
+        printf("%s a ganado con tijera a %s que utilizo papel \n", b.nombre, a.nombre);
+        b.victorias++;  
+        a.derrotas++;        
+    }else if((a.seleccion==3)&&(b.seleccion==1)){
+        printf("%s a ganado con piedra a %s que utilizo tijera \n", b.nombre, a.nombre);  
+        b.victorias++;  
+        a.derrotas++;      
+    }else if((a.seleccion==3)&&(b.seleccion==2)){
+        printf("%s a ganado con tijera a %s que utilizo papel \n", a.nombre, b.nombre); 
+        a.victorias++;  
+        b.derrotas++;       
+    }else{
+        printf("Los dos jugadores han elegido %d por ende es un empate \n", a.seleccion);
+        a.empates++;
+        b.empates++;
+    }
+
+return 0;
+}
+
+void resultadoFinal(){
+    printf("El jugador %s , tiene %d victorias, %d derrotas y %d empates. \n", a.nombre,a.victorias,a.derrotas,a.empates );    
+    printf("El jugador %s , tiene %d victorias, %d derrotas y %d empates. \n", b.nombre,b.victorias,b.derrotas,b.empates);    
+    printf("Y el total de partidas jugadas fue de %d \n", a.partidasTotales);
+}
+/* %c → a.nombre[i] (un solo char) */

@@ -15,6 +15,37 @@ struct Vehiculo{
 
 Vehiculo lista[100];
 
+int tipoPrioridad(int prioridad);
+void busqueda();
+void logicaControl(int prioridad, int valor_trabajo);
+void cargarVehiculos();
+
+
+int main(){
+
+    cargarVehiculos();   
+    busqueda();
+    logicaControl(prioridadAlta,prioridadBaja);
+
+    return 0;
+}
+
+void logicaControl(int prioridad, int valor_trabajo){    
+
+   for(int i=0; i <= cantVehiculos; i++){
+     int t = tipoPrioridad(lista[i].prioridad);
+
+    if((t == 0) && (lista[i].valor_trabajo >= 2000)){
+        prioridadAlta ++;
+    }
+    if((t == 2) && (lista[i].valor_trabajo >= 1000)){
+        prioridadBaja ++;
+    }
+   }
+
+    printf("Hay %d Vehiculos de prioridad Alta que pagan mas de 2000 \n y %d Vehiculos de prioridad Baja que pagan mas que 1000 \n", prioridadAlta, prioridadBaja);
+}
+
 int tipoPrioridad(int prioridad){
     
     if(lista[i].prioridad == 1){return 0;}
@@ -23,6 +54,7 @@ int tipoPrioridad(int prioridad){
 
     return -1;
 }
+
 void busqueda(){ 
     int mayorPresupuesto= lista[0].valor_trabajo;
     int IDxMayor= 0;
@@ -35,26 +67,6 @@ void busqueda(){
     printf("Patente: %s\n", lista[IDxMayor].patente);
     printf("Descripcion: %s\n", lista[IDxMayor].descripcion_trabajo);    
     }
-
-
-
-void logicaControl(int prioridad, int valor_trabajo){
-    
-
-   for(int i=0; i <= cantVehiculos; i++){
-     int t = tipoPrioridad(lista[i].prioridad);
-
-    if((t == 0) && (lista[i].valor_trabajo > 2000)){
-        prioridadAlta ++;
-    }
-    if((t == 2) && (lista[i].valor_trabajo > 1000)){
-        prioridadBaja ++;
-    }
-   }
-
-    printf("Hay %d Vehiculos de prioridad Alta que pagan mas de 2000 \n y %d Vehiculos de prioridad Baja que pagan mas que 1000 \n", prioridadAlta, prioridadBaja);
-}
-
 
 void cargarVehiculos(){
 
@@ -83,15 +95,4 @@ while (1) {
     i++;
     cantVehiculos++;
 }
-}
-
-
-
-
-int main(){
-
-    cargarVehiculos();
-    busqueda();
-    logicaControl(prioridadAlta,prioridadBaja);
-    return 0;
 }

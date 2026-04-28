@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <ctype.h>
+#include <string.h>
+#include <iostream>
+/* comentarios */
+/* Control de gimnasio/ */
+/* ingreso de personas para una promo por dia. */
+int clientesMenores= 0;/*ok*/
+int importeDiario = 0;/*ok*/
+int importeSemanal = 0;/*ok*/
+int importeMensual = 0;/*ok*/
+int cantIngresos=0;/*ok*/
+float recaudacionTotal=0;/*ok */
+struct Persona{
+    char nombre[20];
+    int edad;
+    char pase;
+};
+
+
+int main(){
+    int n=0;
+ Persona lista[100];
+ do{
+        printf("ingrese su nombre: ");
+        fgets(lista[n].nombre, sizeof(lista[n].nombre), stdin);
+        lista[n].nombre[strcspn(lista[n].nombre, "\n")] = '\0';
+        if (strcmp(lista[n].nombre, "fin") == 0) break;//para que fin tenga sentido
+        printf("Ingrese su edad: ");
+
+        scanf("%d", &lista[n].edad);
+
+            if(lista[n].edad <= 18){
+        clientesMenores++;
+    }
+        
+        do
+        {
+            printf("ingrese el tipo de pase: ");
+            scanf(" %c", &lista[n].pase);
+
+            int ch;
+            while ((ch = getchar()) != '\n' && ch != EOF) {}
+            if ((lista[n].pase != 'D') && (lista[n].pase != 'S') && (lista[n].pase != 'M')) //limpiar el buffer
+            {
+                printf("Usted no ingreso ninguna de las consonantes validas");
+            }
+        } while ((lista[n].pase != 'D') && (lista[n].pase != 'S') && (lista[n].pase != 'M'));{
+        if (lista[n].pase == 'D')
+        {
+            (importeDiario = importeDiario + 2000);
+        }
+        else if (lista[n].pase == 'S')
+        {
+            (importeSemanal = importeSemanal + 10000);
+        }
+        else if (lista[n].pase == 'M')
+        {
+            (importeMensual = importeMensual + 35000);
+        }      
+          recaudacionTotal = importeDiario + importeSemanal + importeMensual;
+    } 
+
+        cantIngresos++;
+        n++;      
+
+}while (strcmp(lista[n].nombre, "fin") != 0);{
+        printf("El importe total es %f\n", recaudacionTotal);
+        printf("El total de menores es %d\n", clientesMenores);
+
+         printf("La cantidad de ignresos total es %d\n", cantIngresos);
+    }
+
+    return 0;
+}
+
+

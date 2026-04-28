@@ -1,0 +1,97 @@
+
+/*ejercicio*/
+/*Guía de ejercicios
+Ejercicio integrador: Control de acceso a un evento
+Una productora necesita un programa sencillo para registrar personas que quieren entrar a un evento. De
+cada persona se debe ingresar nombre y edad. El programa debe usar varias funciones y llamar varias
+veces a esas funciones para resolver el problema.
+Funciones que deben construirse
+1 int puedeIngresar(int edad)
+Devuelve 1 si la persona tiene 18 años o más. Devuelve 0 en caso contrario.
+2 int tipoIngreso(int edad)
+Devuelve 0 si no puede ingresar, 1 si ingresa con permiso y 2 si tiene ingreso libre.
+3 void mostrarResultado(char nombre[], int edad)
+Muestra un mensaje usando el nombre y la edad de la persona.
+Reglas del evento
+• Menor de 12 años: no puede ingresar.
+• Entre 12 y 17 años: ingresa con permiso.
+• 18 años o más: ingreso libre.
+Qué debe hacer el programa principal
+1 Pedir los datos de 3 personas.
+2 Para cada persona, llamar a las funciones necesarias.
+3 Mostrar el resultado individual de cada una.
+4 Al final, informar cuántas personas pudieron ingresar.
+*/
+/* comentarios */
+/*
+var edad
+var nombre
+
+
+si tiene mas de 18 años
+puede ingresar
+sino
+si tiene entre 12 y 18 puede ingresar con permiso
+sino 
+no puede ingresar
+
+
+
+*/
+#include <stdio.h>
+#include <string.h>
+
+typedef struct {
+    char nombre[30];
+    int edad;
+} Persona;
+
+int tipoIngreso(int edad) {
+    if (edad < 12) return 0;        // no ingresa
+    if (edad <= 17) return 1;       // con permiso
+    return 2;                       // libre (18 o más)
+}
+
+int puedeIngresar(int edad) {
+    return (edad >= 18) ? 1 : 0;    // según consigna: 18+ devuelve 1, sino 0
+}
+
+void mostrarResultado(const char nombre[], int edad) {
+    int t = tipoIngreso(edad);
+
+    if (t == 0) {
+        printf("%s (%d): no puede ingresar.\n", nombre, edad);
+    } else if (t == 1) {
+        printf("%s (%d): puede ingresar con permiso.\n", nombre, edad);
+    } else {
+        printf("%s (%d): ingreso libre.\n", nombre, edad);
+    }
+}
+
+int main() {
+    Persona lista[3];
+    int pudieronIngresar = 0;  // cuenta 12+ (los que ingresan de alguna forma)
+
+    for (int i = 0; i < 3; i++) {
+        printf("Nombre: ");
+        fgets(lista[i].nombre, sizeof(lista[i].nombre), stdin);
+        lista[i].nombre[strcspn(lista[i].nombre, "\n")] = '\0';
+
+        printf("Edad: ");
+        scanf("%d", &lista[i].edad);
+
+        int ch;
+        while ((ch = getchar()) != '\n' && ch != EOF) {}
+
+        mostrarResultado(lista[i].nombre, lista[i].edad);
+
+        if (tipoIngreso(lista[i].edad) != 0) {
+            pudieronIngresar++;
+        }
+    }
+
+    printf("\n--- Resumen ---\n");
+    printf("Pudieron ingresar (con permiso o libre): %d\n", pudieronIngresar);
+
+    return 0;
+}

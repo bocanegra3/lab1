@@ -1,3 +1,35 @@
+/* Ejercicio Integrador 2
+Tema: Gestión de Taller Mecánico
+Contexto del Problema
+Un taller mecánico local necesita un sistema básico para gestionar el ingreso de vehículos y realizar un análisis de los costos de reparación. Usted ha sido 
+contratado para desarrollar un prototipo funcional que permita administrar estos datos de manera eficiente.
+
+1. Requerimientos Técnicos
+A. Definición de Estructura (Struct)
+Definir una estructura llamada Vehiculo que contenga los siguientes campos:
+
+patente: Cadena de caracteres.
+
+prioridad: Entero (1 para Alta, 2 para Media, 3 para Baja).
+
+descripcion_trabajo: Cadena de caracteres.
+
+valor_trabajo: Número decimal (float o double).
+
+B. Funcionalidades 
+Carga de vehiculos: Una función que permita ingresar los datos de N vehículos 
+
+Búsqueda: determine cuál es el vehículo con el presupuesto de reparación más costoso. Debe mostrar por pantalla la patente y la descripción del mismo.
+
+Función de Informe: Una función que procese los datos según la lógica de control detallada a continuación.
+
+C. Lógica de Control 
+Evaluar la prioridad del vehículo.
+
+Si la prioridad es Alta (1): Verificar si el valor del trabajo supera los $2000. Si se cumple, contabilizarlo para mostrar el total al final.
+
+Si la prioridad es Baja (3): Verificar si el valor del trabajo supera los $1000. Si se cumple, contabilizarlo para mostrar el total al final. */
+
 #include <stdio.h>
 #include <string.h>
     int i= 0;

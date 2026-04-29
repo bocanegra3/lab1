@@ -28,12 +28,15 @@ Como este trabajo se desarrolla íntegramente en PC el ejercicio será tomado en
 int i = 0;
 int palabrasCoincidentes=0;
 int palabrasDistintas=0;
+int cantidad = 0;
 
 struct Comparacion
 {
 char palabrasUno[30];
 char palabrasDos[30];
 };
+
+ char resultados[100][20];
 
 Comparacion lista[100];
 
@@ -44,16 +47,23 @@ int main(){
 
 pedirPalabras();
     
+ printf("\nLista en orden:\n");
+    for (int i = 0; i < cantidad; i++) {
+        printf("%d) %s\n", i + 1, resultados[i]);
+    }
     return 0;
 }
 
 void Comparar(){
     if(strcmp(lista[i].palabrasUno,lista[i].palabrasDos)== 0)
     {
-        palabrasCoincidentes ++;            
+        palabrasCoincidentes ++; 
+        strcpy(resultados[i], "Coincidio");       
     }else{
         palabrasDistintas++;
+        strcpy(resultados[i], "No coincidio");//guarda en el array la palabra
     }
+    cantidad ++;
 }
 
 void pedirPalabras(){

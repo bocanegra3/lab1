@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 struct Alumnos
 {
@@ -10,10 +11,25 @@ struct Alumnos
 
 Alumnos lista[100];
 
-char info[100][10];
+char info[100][80];
 int i = 0;
+int cantidad = 0;
+float notaTotal= 0;
 
-void cargarAlumnos(){
+
+void CargarAlumnos();
+void MostrarAlumnos();
+
+
+int main(){
+
+CargarAlumnos();
+MostrarAlumnos();
+
+    return 0;
+}
+
+void CargarAlumnos(){
 while (1){
     printf("Coloque el nombre del alumno: ");
 fgets(lista[i].nombre, sizeof(lista[i].nombre), stdin);
@@ -31,25 +47,27 @@ lista[i].apellido[strcspn(lista[i].apellido, "\n")] = '\0';
 strcpy(info[i], lista[i].apellido);  
 
 printf("Coloca la nota del alumno: ");
-scanf("%d", lista[i].nota);
+scanf("%d", &lista[i].nota);
 
+notaTotal += lista[i].nota;
+
+sprintf(info[i], "%s %s %d", lista[i].nombre, lista[i].apellido, lista[i].nota);// Se convierte en string para guardarse posterior mente en info[i]
 int ch;
 while(((ch = getchar()) != '\n') && ch != EOF){}
 
-i++;}
+cantidad ++;
+
+i++;
+}
+float promedio = notaTotal / cantidad;
+
+printf("Nota promedio fue %2f \n", promedio);
 }
 
-void mostrarAlumnos(){
-printf("%s" , info[i]);
-}
 
-void notaPromedio(){
-
-}
-
-int main(){
-
-
-
-    return;
+void MostrarAlumnos(){
+     printf("\nLista en orden:\n");
+    for (int i = 0; i < cantidad; i++) {
+        printf("%d) %s\n", i + 1, info[i]);
+    }   
 }

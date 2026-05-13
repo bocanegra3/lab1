@@ -1,0 +1,135 @@
+/* Ejercicio
+Una terminal de ómnibus registra la venta de pasajes de micros con 3 Destinos.
+Se termina cuando se ingresa el Micro 0
+
+AL "abrir" un micro se carga el destino ("N", "S", "C")
+Luego 
+De cada pasajero se ingresa:
+
+edad
+importe del pasaje
+Se pide informar:
+
+Recaudación total general.
+Cantidad total de pasajeros. (TODOS LOS MICROS)
+Cantidad de pasajeros mayores de 60 años. (TODOS LOS MICROS)
+Recaudación del destino "S".
+Promedio de importe de los pasajeros del destino "N".
+Cuántos micros tuvieron más de 3 pasajeros.
+Cuántos pasajeros pagaron más de 10000 y eran menores de 18 años. (TODOS LOS MICROS) */
+#include <stdio.h>
+#include <string.h>
+//acumulador geral
+int countMenores= 0;
+int countPasajeros = 0;
+int countMayores= 0;
+//acumulador recaudacion
+float recaudacionS= 0;
+float recaudacionD= 0;
+float recaudacionN= 0;
+float totalGeneral= 0;
+//acumulador general
+int i = 0;
+//acumulador cantidad de pasajeros
+int n= 0;
+int s= 0;
+int d= 0;
+//acumulador destino
+int destinoN = 0;
+int destinoS = 0;
+int destinoD = 0;
+//seleccion destino
+char destino;
+
+
+struct Pasajero{
+    int edad= 0;
+    float precio= 0;
+};
+
+Pasajero lista[100];
+
+void CargaPasajeros();
+void Mayores();
+void Menores();
+void RecaudacionDestino();
+void MostrasResultados();
+
+int main(){
+
+CargaPasajeros();
+MostrasResultados();
+
+    return 0;
+}
+
+void CargaPasajeros(){
+    while (1)
+    {
+        /* code */
+    printf("coloque un destino, puede ser N S o C: ");
+    scanf(" %c", &destino);// la c es para un char y la s un string.
+
+    if(destino == '0'){
+    break;
+    }
+    
+    printf("carga la edad del pasajero: ");
+    scanf("%d", &lista[i].edad);
+
+    printf("Cargue ahora el precio del boleto: ");
+    scanf("%f", &lista[i].precio);
+
+    printf("pone 0 para finalizar la operacion de lo contrario, ");
+
+    totalGeneral += lista[i].precio;
+
+    RecaudacionDestino();
+    Menores();
+    Mayores();
+    countPasajeros ++;
+    i++;
+    }    
+
+}
+
+void Mayores(){
+    if(lista[i].edad >59){
+    countMayores++;
+    }
+}
+
+void Menores(){
+    if((lista[i].edad<18) && (lista[i].edad>0)){
+        if(lista[i].precio>10000){countMenores++;}
+    }
+}
+
+void RecaudacionDestino(){
+    if(destino == 'N'){
+        recaudacionN += lista[i].precio;
+        destinoN++;
+        n++;
+    }else if(destino == 'S'){
+        recaudacionS += lista[i].precio;
+        destinoS++;
+        s++;
+    }else if(destino == 'D'){
+        recaudacionD += lista[i].precio;
+        destinoD++;
+        d++;
+    }
+    
+}
+
+void MostrasResultados(){
+    printf("%.2f Recaudación total general. \n", totalGeneral);
+    printf("%d Cantidad total de pasajeros. (TODOS LOS MICROS)\n", countPasajeros);
+    printf("%d Cantidad de pasajeros mayores de 60 anios.\n", countMayores);
+    printf("%d Cuantos pasajeros pagaron mas de 10000 y eran menores de 18 anios. \n", countMenores);
+    printf("%.2f Recaudación del destino  'S' \n", recaudacionS);
+    if(n >= 3){printf("destino N fueron mas de 3 personas \n");}
+    if(s >= 3){printf("destino S fueron mas de 3 personas \n");}
+    if(d >= 3){printf("destino D fueron mas de 3 personas \n");}
+    printf("%.2f Promedio de importe de los pasajeros del destino  'N' \n", recaudacionN / n); 
+}

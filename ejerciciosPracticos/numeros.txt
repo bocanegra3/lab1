@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+int num = 0;
+
+void cicuentaOMayor();
+
+int main(){
+
+    do{
+        printf("dar un numero entero distinto de 0: ");
+        scanf("%d", &num);
+
+        if((num > 0 ) && (num != 0 )){            
+            printf("El numero es Positivo \n");
+            cicuentaOMayor();
+            
+        }else if((num < 0) && (num != 0)){
+            printf("El numero es Negativo \n");
+            cicuentaOMayor();
+        }
+
+        if((num % 2) == 0){
+            if(num == 0){ break; }
+            printf("El numero es Par \n");
+        }else{
+            printf("El numero es imPar \n");
+        }
+    }while (num != 0) ;
+  
+    return 0;
+}
+
+void cicuentaOMayor(){
+    if(num > 50){
+        printf("el numero ingresado es mayor a 50 \n");
+    }else if(num < 50){
+        printf("el numero ingresado es menoor a 50 \n");
+    }else{ printf("el numero es 50 \n");}
+}

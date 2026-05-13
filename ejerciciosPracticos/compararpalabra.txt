@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <string.h>
+//variables
+char palabraUno[30];
+char palabraDos[30];
+int continuar = 1;
+int igual=0;
+int desIgual=0;
+int count=0;
+int i=0;
+//vectores
+char resultados[100][30];
+//funciones
+void comparar();
+
+int main(){
+
+    do
+    {
+        printf("Desea iniciar/continuar colocar cualquier numero, de lo contrario precione 0: ");
+        scanf("%d", &continuar);
+        //corta el bucle si coloca 0
+        if(continuar == 0) break;
+
+          int ch;
+        while(((ch = getchar()) != '\n') && ch != EOF){}
+
+        //toma la primera palabra
+        printf("coloque aqui la primera palabra que desea comparar: ");
+        fgets(palabraUno,sizeof(palabraUno), stdin);
+        palabraUno[strcspn(palabraUno, "\n")]= '\0';
+        //toma la segunda palabra
+        printf("coloque aqui la segunda palabra: ");
+        fgets(palabraDos,sizeof(palabraDos), stdin);
+        palabraDos[strcspn(palabraDos, "\n")]= '\0';
+        //cuentas las veces que se carga la palabra
+        count++;
+        //llamado de funciones
+        comparar();        
+    }  while (continuar != 0);{
+        //mostrar el resultado
+    printf("Las Coincidencias fueron %d y las no Coincidencias %d \n", igual, desIgual);
+    printf("\nLista en orden:\n");
+    for (int i = 0; i < count; i++) {
+        printf("%d) %s\n", i + 1, resultados[i]);
+    }
+    }
+    
+    return 0;
+}
+//funcion de comparar
+void comparar(){
+
+    if(strcmp(palabraUno, palabraDos)==0){
+        igual++;
+        strcpy(resultados[i], "Coinciden");    
+    }else{
+        desIgual++;
+        strcpy(resultados[i], "No Coinciden");    
+    }
+  i++;
+}

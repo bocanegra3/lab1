@@ -1,0 +1,73 @@
+#include <stdio.h>
+#include <string.h>
+int i = 0;
+int count = 0;
+float notasPromedio= 0;
+float totalNotas = 0;
+
+char info[100][80];
+
+struct Alumnos
+{
+    /* data */
+    char nombre[30];
+    char apellido[30];
+    int nota = 0;
+};
+
+Alumnos lista[5];
+
+
+void CargarAlumnos();
+void MostrarAlumnos();
+void PromedioNotas();
+
+int main(){
+
+CargarAlumnos();
+    return 0;
+}
+
+void CargarAlumnos(){
+while (count < 5)
+{
+    /* code */
+    printf("nombre: ");
+    fgets(lista[i].nombre, sizeof(lista[i].nombre), stdin);
+    lista[i].nombre[strcspn(lista[i].nombre, "\n")] = '\0';
+
+    strcmp(info[i], lista[i].nombre);
+
+    printf("apellido: ");
+    fgets(lista[i].apellido, sizeof(lista[i].apellido), stdin);
+    lista[i].apellido[strcspn(lista[i].apellido, "\n")] = '\0';  
+
+    strcmp(info[i], lista[i].apellido);
+
+    printf("ingrese nota del alumno: ");
+    scanf("%d", &lista[i].nota);
+
+    totalNotas += lista[i].nota;
+
+    int ch;
+    while(((ch = getchar()) != '\n') && ch != EOF){}
+
+    sprintf(info[i],"%s , %s , %d", lista[i].nombre, lista[i].apellido, lista[i].nota);
+
+    count ++;
+    i++;
+}
+MostrarAlumnos();
+PromedioNotas();
+
+}
+void MostrarAlumnos(){
+    for(int i=0; i < count; i++){
+        printf("%s \n", info[i]);   
+    }
+}
+void PromedioNotas(){
+    notasPromedio = totalNotas / 5;
+    printf("el promedio es: %2f", notasPromedio);
+}
+

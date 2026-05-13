@@ -1,0 +1,58 @@
+/* Parcial de práctica 3 — Nivel Difícil (tipo integrador)
+Ejercicio A (3 pts) — Menú con validación (switch + while)
+
+Crear un programa con saldo inicial (float) y un menú:
+
+Depositar
+Retirar (no permitir saldo negativo)
+Consultar saldo
+Salir
+
+Debe repetirse hasta elegir 4.
+Condición: switch, validaciones con if. */
+#include <stdio.h>
+#include <string.h>
+
+float saldo = 0;
+int opcion = 0;
+float deposito = 0;
+float retiro = 0;
+
+int main(){
+   
+  while(opcion != 4){
+     printf("seleccione \n 1) para depositar. \n 2)para retirar. \n 3) para consultar saldo. \n y si desea salir precione 4: ");
+    scanf("%d", &opcion);
+
+      switch (opcion)
+    {
+    case 1:
+        /* code */
+        printf("Coloque el monto a depositar: ");
+        scanf("%f", &deposito);
+        saldo += deposito; 
+        break;
+    case 2:
+        /* code */
+        printf("Coloque el monto a retirar: ");
+        scanf("%f", &retiro);
+        saldo -= retiro;  
+        break;
+    case 3:
+        /* code */
+        printf("su saldo actual es %.2f...\n", saldo);
+        break;
+    case 4:
+        /* code */
+        printf("Gracias por utilizar este programa! hasta la proxima");
+        break;                        
+    
+    default:
+        printf("el valor indicado por el usuario resulto incorrecto, \n coloque del 1 al 4 dependiendo de lo que sea \n");
+        break;
+    }
+  }
+
+
+    return 0 ;
+}
